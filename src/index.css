@@ -659,7 +659,9 @@ body {
   max-width: 600px;
 }
 
-/* レスポンシブ対応 */
+/* ===== レスポンシブ対応 ===== */
+
+/* --- タブレット (769px - 1024px) --- */
 @media (max-width: 1024px) {
   .sidebar {
     width: 80px;
@@ -684,26 +686,34 @@ body {
     margin-left: 80px;
     padding: 2rem;
   }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
+/* --- スマートフォン (768px以下) --- */
 @media (max-width: 768px) {
+  /* グリッドを1カラムに統一 */
   .grid-cols-3, .grid-cols-2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
   
-  /* サイドバーを下部固定のボトムナビゲーションに変更 */
+  /* サイドバーをボトムナビゲーションに変換 */
   .sidebar {
     position: fixed;
     bottom: 0;
     left: 0;
     top: auto;
     width: 100%;
-    height: 70px;
+    height: 64px;
     flex-direction: row;
-    padding: 0;
+    padding: 0 4px;
     border-right: none;
     border-top: 1px solid var(--border-color);
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(7, 10, 19, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
   }
 
@@ -713,22 +723,27 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 0;
+    gap: 0;
+    flex-grow: 0;
   }
 
   .nav-item {
     flex-direction: column;
-    gap: 4px;
-    padding: 8px;
+    gap: 3px;
+    padding: 6px 4px;
     border-radius: 8px;
     flex: 1;
     position: relative;
     border: none;
+    font-size: 0.7rem;
+    align-items: center;
+    justify-content: center;
   }
   
   .nav-item:hover {
     transform: none;
+    background: transparent;
+    border-color: transparent;
   }
   
   .nav-item.active {
@@ -737,59 +752,240 @@ body {
     border: none;
   }
   
-  /* アクティブなタブの上部にインジケーターを表示 */
   .nav-item.active::before {
     content: '';
     position: absolute;
-    top: -1px;
-    left: 20%;
-    width: 60%;
-    height: 3px;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
     background: var(--accent-cyan);
     border-radius: 0 0 4px 4px;
     box-shadow: 0 2px 8px rgba(6, 182, 212, 0.6);
   }
 
   .nav-item span {
-    display: block; /* アイコン下のテキストを表示 */
-    font-size: 0.65rem;
+    display: block;
+    font-size: 0.6rem;
     white-space: nowrap;
+    text-align: center;
+  }
+  
+  .nav-item svg {
+    width: 20px;
+    height: 20px;
   }
 
   .brand, .sidebar-footer {
     display: none !important;
   }
   
-  /* メインコンテンツの調整 (ボトムナビの分だけ下パディングを増やす) */
+  /* メインコンテンツ */
   .main-content {
     margin-left: 0;
-    padding: 1rem 1rem 90px 1rem; 
+    padding: 1rem 0.875rem 80px 0.875rem;
   }
   
-  /* ページヘッダーの調整 */
+  /* ページヘッダー */
   .page-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 1.5rem;
+    gap: 6px;
+    margin-bottom: 1.25rem;
   }
 
   .page-title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
   
-  /* カード内の余白を減らす */
+  .page-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  /* カード */
   .glass-card {
-    padding: 1.25rem;
-    border-radius: 16px;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+  
+  .glass-card:hover {
+    transform: none;
+  }
+  
+  /* ボタン */
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.875rem;
+    border-radius: 10px;
+  }
+  
+  .btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  /* フォーム */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-input, .form-select, .form-textarea {
+    padding: 10px 14px;
+    font-size: 16px; /* iOSのズーム防止: 16px以上が必要 */
+    border-radius: 10px;
+  }
+  
+  /* テーブル */
+  .custom-table th, .custom-table td {
+    padding: 10px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .custom-table th {
+    font-size: 0.7rem;
+  }
+  
+  /* カレンダー */
+  .calendar-container {
+    gap: 4px;
+    margin-top: 10px;
+  }
+  
+  .calendar-day {
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+  
+  .calendar-day-header {
+    font-size: 0.7rem;
+    padding: 4px 0;
+  }
+  
+  /* タイムスロット */
+  .time-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .time-slot {
+    padding: 10px 8px;
+    border-radius: 8px;
+  }
+  
+  /* 物品カード */
+  .equipment-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  
+  .equipment-image-placeholder {
+    height: 100px;
+  }
+  
+  /* バッジ */
+  .badge {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+  
+  /* モーダル */
+  .modal-overlay {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 3rem;
   }
   
   .modal-card {
+    width: 100%;
+    max-width: 100%;
     padding: 1.25rem;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 16px;
+  }
+  
+  .modal-card-lg {
+    max-width: 100%;
+  }
+  
+  /* ウェルカムカード */
+  .welcome-gradient-card h2 {
+    font-size: 1.1rem !important;
+  }
+  
+  .welcome-gradient-card p {
+    font-size: 0.8rem !important;
+  }
+  
+  /* ダッシュボードステータスアイコン */
+  .dashboard-stat-icon-cyan,
+  .dashboard-stat-icon-blue,
+  .dashboard-stat-icon-indigo {
+    padding: 12px;
+    border-radius: 10px;
+  }
+  
+  .dashboard-stat-icon-cyan svg,
+  .dashboard-stat-icon-blue svg,
+  .dashboard-stat-icon-indigo svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  /* アクティビティアイテム */
+  .activity-item {
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .activity-item-title {
+    font-size: 0.85rem;
+  }
+  
+  .activity-item-meta {
+    font-size: 0.7rem;
+  }
+  
+  /* 検索・フィルターバー */
+  .user-switch-container {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
+/* --- 極小スマホ (360px以下) --- */
+@media (max-width: 360px) {
+  .main-content {
+    padding: 0.75rem 0.625rem 80px 0.625rem;
+  }
+  
+  .page-title {
+    font-size: 1.2rem;
+  }
+  
+  .glass-card {
+    padding: 0.875rem;
+    border-radius: 12px;
+  }
+  
+  .time-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-item span {
+    font-size: 0.55rem;
+  }
+}
+
+/* ===== アニメーション ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

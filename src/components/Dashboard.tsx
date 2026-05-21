@@ -82,7 +82,7 @@ export const Dashboard: React.FC = () => {
           </div>
           <div>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>今日の防音室予約</div>
-            <div style={{ fontSize: '1.8rem', fontWeight: '800', marginTop: '4px' }}>
+            <div style={{ fontSize: '1.5rem', fontWeight: '800', marginTop: '4px' }}>
               {todayReservations.length} 件
             </div>
           </div>
@@ -95,7 +95,7 @@ export const Dashboard: React.FC = () => {
           </div>
           <div>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>貸出中の物品</div>
-            <div style={{ fontSize: '1.8rem', fontWeight: '800', marginTop: '4px' }}>
+            <div style={{ fontSize: '1.5rem', fontWeight: '800', marginTop: '4px' }}>
               {rentedEquipment.length} 件
             </div>
           </div>
@@ -110,7 +110,7 @@ export const Dashboard: React.FC = () => {
             <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
               未納品の購入申請
             </div>
-            <div style={{ fontSize: '1.8rem', fontWeight: '800', marginTop: '4px' }}>
+            <div style={{ fontSize: '1.5rem', fontWeight: '800', marginTop: '4px' }}>
               {undeliveredRequests.length} 件
             </div>
           </div>
@@ -174,7 +174,7 @@ export const Dashboard: React.FC = () => {
                     <div className="activity-item-details">
                       <div className="activity-item-title">{req.name}</div>
                       <div className="activity-item-meta">
-                        申請日: {req.date} | 申請者: {req.requester} | 個数: {req.quantity}
+                        {req.date} ・ {req.requester} ・ {req.quantity}個
                       </div>
                     </div>
                     <span className={`badge ${getStatusClass(req.status)}`} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>

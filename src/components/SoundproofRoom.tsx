@@ -163,7 +163,7 @@ export const SoundproofRoom: React.FC = () => {
       </div>
 
       {/* メインレイアウト */}
-      <div className="grid-cols-3" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1.8fr', gap: '2rem' }}>
+      <div className="grid-cols-2" style={{ gap: '2rem' }}>
         {/* 左カラム：カレンダー選択 */}
         <div className="glass-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>

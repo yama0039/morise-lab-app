@@ -106,8 +106,8 @@ export const EquipmentRental: React.FC = () => {
       </div>
 
       {/* 検索・フィルターバー */}
-      <div className="glass-card" style={{ marginBottom: '2rem', display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap', padding: '1.25rem' }}>
-        <div style={{ flexGrow: 1, position: 'relative', display: 'flex', alignItems: 'center' }}>
+      <div className="glass-card" style={{ marginBottom: '2rem', display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', padding: '1.25rem' }}>
+        <div style={{ flexGrow: 1, flexBasis: '200px', position: 'relative', display: 'flex', alignItems: 'center' }}>
           <Search size={18} style={{ position: 'absolute', left: '16px', color: 'var(--text-muted)' }} />
           <input
             type="text"
@@ -119,14 +119,14 @@ export const EquipmentRental: React.FC = () => {
           />
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Filter size={18} style={{ color: 'var(--text-secondary)' }} />
-          <div style={{ display: 'flex', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          <Filter size={18} style={{ color: 'var(--text-secondary)', flexShrink: 0 }} />
+          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
             {categories.map((cat) => (
               <button
                 key={cat}
                 className={`btn btn-sm ${selectedCategory === cat ? 'btn-primary' : 'btn-secondary'}`}
-                style={{ padding: '8px 16px', borderRadius: '20px' }}
+                style={{ padding: '6px 14px', borderRadius: '20px' }}
                 onClick={() => setSelectedCategory(cat)}
               >
                 {cat === 'All' ? 'すべて' : cat}
