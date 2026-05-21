@@ -74,7 +74,7 @@ export const Dashboard: React.FC = () => {
       </div>
 
       {/* クイックステータスグリッド */}
-      <div className="grid-cols-3">
+      <div className="grid-cols-3 dashboard-stats-grid">
         {/* 今日の防音室予約数 */}
         <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div className="dashboard-stat-icon-cyan">

@@ -101,12 +101,12 @@ export const EquipmentRental: React.FC = () => {
       <div className="page-header">
         <div>
           <h1 className="page-title">物品・機材貸出</h1>
-          <p className="page-subtitle">研究室所有のマイク, ヘッドホン, PC, オシロスコープ, 書籍等の貸出を申請・管理できます。</p>
+          <p className="page-subtitle">研究室所有のマイク, ヘッドホン, PC, 書籍等の貸出を申請・管理できます。</p>
         </div>
       </div>
 
       {/* 検索・フィルターバー */}
-      <div className="glass-card" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', padding: '1rem' }}>
+      <div className="glass-card search-filter-bar" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', padding: '1rem' }}>
         <div style={{ flexGrow: 1, flexBasis: '200px', position: 'relative', display: 'flex', alignItems: 'center' }}>
           <Search size={18} style={{ position: 'absolute', left: '16px', color: 'var(--text-muted)' }} />
           <input
@@ -150,18 +150,18 @@ export const EquipmentRental: React.FC = () => {
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-xs)', marginBottom: 'var(--space-xs)' }}>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <span className="equipment-item-category" style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     {item.category}
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: 'var(--space-sm)', lineHeight: '1.4', color: 'var(--text-primary)' }}>
+                <h3 className="equipment-item-title" style={{ fontSize: '1rem', fontWeight: '700', marginBottom: 'var(--space-sm)', lineHeight: '1.4', color: 'var(--text-primary)' }}>
                   {item.name}
                 </h3>
 
                 {/* 貸出中の場合の借用者情報 */}
                 {item.status === 'rented' && (
-                  <div style={{ padding: '12px', background: 'rgba(0, 0, 0, 0.2)', borderRadius: '12px', border: '1px solid var(--border-color)', marginBottom: '1.25rem', fontSize: '0.85rem' }}>
+                  <div className="equipment-rental-info" style={{ padding: '12px', background: 'rgba(0, 0, 0, 0.2)', borderRadius: '12px', border: '1px solid var(--border-color)', marginBottom: '1.25rem', fontSize: '0.85rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                       <span style={{ color: 'var(--text-secondary)' }}>借用者:</span>
                       <span style={{ fontWeight: '600', color: 'var(--accent-cyan)' }}>{item.currentUser}</span>
