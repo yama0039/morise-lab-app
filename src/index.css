@@ -29,6 +29,16 @@
   --shadow-main: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
+  /* Space Tokens */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 0.75rem;  /* 12px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2rem;     /* 32px */
+  --space-xxl: 3rem;    /* 48px */
+  
+  --max-width-content: 1200px;
+  
   font-family: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
   color-scheme: dark;
 }
@@ -199,9 +209,20 @@ body {
 /* メインコンテンツエリア */
 .main-content {
   margin-left: 280px;
-  padding: 3rem;
+  padding: var(--space-xxl) var(--space-xl);
   flex-grow: 1;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* 実際の内容物ラッパー */
+.main-container {
+  width: 100%;
+  max-width: var(--max-width-content);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
 }
 
 /* ページタイトルとヘッダー */
@@ -209,12 +230,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-md);
 }
 
 .page-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 2rem;
+  font-size: 1.85rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   background: linear-gradient(to right, #ffffff, #cbd5e1);
@@ -223,7 +244,7 @@ body {
 }
 
 .page-subtitle {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   margin-top: 4px;
 }
@@ -234,8 +255,8 @@ body {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 1.75rem;
+  border-radius: 16px;
+  padding: var(--space-lg);
   box-shadow: var(--shadow-main);
   transition: var(--transition-smooth);
 }
@@ -259,16 +280,32 @@ body {
   gap: 1.5rem;
 }
 
+/* 共通セクションタイトル */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.section-title svg {
+  flex-shrink: 0;
+}
+
 /* ボタンの共通デザイン */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 12px;
+  gap: var(--space-xs);
+  padding: 10px 18px;
+  border-radius: 10px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: var(--transition-smooth);
   border: 1px solid transparent;
@@ -308,14 +345,14 @@ body {
 }
 
 .btn-sm {
-  padding: 8px 16px;
-  font-size: 0.85rem;
+  padding: 6px 12px;
+  font-size: 0.8rem;
   border-radius: 8px;
 }
 
 /* フォーム関連の共通デザイン */
 .form-group {
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-md);
 }
 
 .form-label {
@@ -323,18 +360,18 @@ body {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-secondary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .form-input, .form-select, .form-textarea {
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px 14px;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 10px;
   color: var(--text-primary);
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 16px;
   transition: var(--transition-smooth);
 }
 
@@ -521,19 +558,19 @@ body {
 }
 
 .custom-table th {
-  padding: 16px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--border-color);
   color: var(--text-secondary);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .custom-table td {
-  padding: 16px;
+  padding: 12px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--text-primary);
   vertical-align: middle;
 }
@@ -783,7 +820,7 @@ body {
   /* メインコンテンツ */
   .main-content {
     margin-left: 0;
-    padding: 1rem 0.875rem 80px 0.875rem;
+    padding: var(--space-md) var(--space-sm) 80px var(--space-sm);
   }
   
   /* ページヘッダー */

@@ -163,15 +163,15 @@ export const SoundproofRoom: React.FC = () => {
       </div>
 
       {/* メインレイアウト */}
-      <div className="grid-cols-2" style={{ gap: '2rem' }}>
+      <div className="grid-cols-2">
         {/* 左カラム：カレンダー選択 */}
         <div className="glass-card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.1rem', fontWeight: '600' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <h3 className="section-title">
               <CalendarIcon size={18} style={{ color: 'var(--accent-cyan)' }} />
               日付を選択
             </h3>
-            <div style={{ display: 'flex', gap: '8px' }}>
+            <div style={{ display: 'flex', gap: '8px', marginBottom: 'var(--space-md)' }}>
               <button className="btn btn-secondary btn-sm" style={{ padding: '4px 8px' }} onClick={handlePrevMonth}>&lt;</button>
               <span style={{ fontSize: '0.9rem', fontWeight: '600', alignSelf: 'center' }}>
                 {currentYearMonth.year}年 {currentYearMonth.month + 1}月
@@ -221,9 +221,9 @@ export const SoundproofRoom: React.FC = () => {
         </div>
 
         {/* 右カラム：タイムスロット選択 ＆ 予約フォーム */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-xl)' }}>
           <div className="glass-card">
-            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.1rem', fontWeight: '600', marginBottom: '1.25rem' }}>
+            <h3 className="section-title">
               <Clock size={18} style={{ color: 'var(--accent-blue)' }} />
               {selectedDate} の空き状況と予約申請
             </h3>
@@ -309,7 +309,7 @@ export const SoundproofRoom: React.FC = () => {
 
           {/* すべての予約履歴 */}
           <div className="glass-card">
-            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.1rem', fontWeight: '600', marginBottom: '1.25rem' }}>
+            <h3 className="section-title">
               <User size={18} style={{ color: 'var(--accent-indigo)' }} />
               すべての防音室予約一覧
             </h3>

@@ -85,10 +85,10 @@ export const PurchaseRequest: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      <div>
         {/* 新規購入申請フォーム */}
         <div className="glass-card" style={{ height: 'fit-content' }}>
-          <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.1rem', fontWeight: '600', marginBottom: '1.5rem' }}>
+          <h3 className="section-title">
             <Send size={18} style={{ color: 'var(--accent-cyan)' }} />
             新規購入申請
           </h3>
@@ -201,14 +201,14 @@ export const PurchaseRequest: React.FC = () => {
         </div>
 
         {/* 申請一覧のトグルボタン */}
-        <div>
+        <div style={{ marginTop: 'var(--space-md)', marginBottom: 'var(--space-md)' }}>
           <button 
             type="button"
             className="btn btn-secondary" 
-            style={{ width: '100%', padding: '16px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', fontSize: '1.05rem', fontWeight: '600', borderRadius: '16px', background: 'var(--bg-panel)', border: '1px solid var(--border-color)', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}
+            style={{ width: '100%', padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', fontSize: '0.9rem', fontWeight: '600', borderRadius: '10px', background: 'var(--bg-panel)', border: '1px solid var(--border-color)', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}
             onClick={() => setShowHistory(!showHistory)}
           >
-            <FileText size={20} style={{ color: 'var(--accent-blue)' }} />
+            <FileText size={16} style={{ color: 'var(--accent-blue)' }} />
             {showHistory ? '申請履歴・ステータスを閉じる' : '申請履歴・ステータスを見る'}
           </button>
         </div>
@@ -216,8 +216,8 @@ export const PurchaseRequest: React.FC = () => {
         {/* 申請一覧（トグルで表示） */}
         {showHistory && (
         <div className="glass-card" style={{ animation: 'fadeIn 0.3s ease' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.1rem', fontWeight: '600' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <h3 className="section-title">
               <FileText size={18} style={{ color: 'var(--accent-blue)' }} />
               申請履歴・ステータス
             </h3>
@@ -267,9 +267,9 @@ export const PurchaseRequest: React.FC = () => {
       {viewingRequest && (
         <div className="modal-overlay">
           <div className="glass-card modal-card modal-card-lg">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 'var(--space-md)' }}>
               <div>
-                <h2 style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--text-primary)' }}>
+                <h2 style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '4px' }}>
                   購入申請詳細
                 </h2>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>ID: {viewingRequest.id}</span>

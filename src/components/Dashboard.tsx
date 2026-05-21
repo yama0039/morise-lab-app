@@ -65,52 +65,52 @@ export const Dashboard: React.FC = () => {
 
       {/* ウェルカムカード */}
       <div className="glass-card welcome-gradient-card">
-        <h2 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-primary)' }}>
+        <h2 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-primary)' }}>
           ようこそ、森勢研究室ポータルへ
         </h2>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>
           本ポータルでは、森勢研究室の防音室予約、機材・物品の貸出、書籍や機材の購入申請を一括で管理できます。
         </p>
       </div>
 
       {/* クイックステータスグリッド */}
-      <div className="grid-cols-3" style={{ marginBottom: '2rem' }}>
+      <div className="grid-cols-3">
         {/* 今日の防音室予約数 */}
-        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div className="dashboard-stat-icon-cyan">
             <Calendar size={28} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>今日の防音室予約</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: '800', marginTop: '4px' }}>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>今日の防音室予約</div>
+            <div style={{ fontSize: '1.35rem', fontWeight: '800', marginTop: '2px' }}>
               {todayReservations.length} 件
             </div>
           </div>
         </div>
 
         {/* 自分の貸出中機材数 */}
-        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div className="dashboard-stat-icon-blue">
             <Package size={28} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>貸出中の物品</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: '800', marginTop: '4px' }}>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>貸出中の物品</div>
+            <div style={{ fontSize: '1.35rem', fontWeight: '800', marginTop: '2px' }}>
               {rentedEquipment.length} 件
             </div>
           </div>
         </div>
 
         {/* 購入申請ステータス */}
-        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <div className="dashboard-stat-icon-indigo">
             <FileText size={28} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
               未納品の購入申請
             </div>
-            <div style={{ fontSize: '1.5rem', fontWeight: '800', marginTop: '4px' }}>
+            <div style={{ fontSize: '1.35rem', fontWeight: '800', marginTop: '2px' }}>
               {undeliveredRequests.length} 件
             </div>
           </div>
@@ -121,12 +121,12 @@ export const Dashboard: React.FC = () => {
       <div className="grid-cols-2">
         {/* 今日の防音室タイムテーブル */}
         <div className="glass-card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.1rem', fontWeight: '600' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <h3 className="section-title">
               <Calendar size={18} style={{ color: 'var(--accent-cyan)' }} />
               本日の防音室利用状況
             </h3>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{todayStr}</span>
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '2px' }}>{todayStr}</span>
           </div>
 
           {todayReservations.length === 0 ? (
@@ -156,7 +156,7 @@ export const Dashboard: React.FC = () => {
 
         {/* お知らせ & 最近の申請 */}
         <div className="glass-card">
-          <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.1rem', fontWeight: '600', marginBottom: '1.25rem' }}>
+          <h3 className="section-title">
             <Bell size={18} style={{ color: 'var(--accent-indigo)' }} />
             最近の購入申請
           </h3>

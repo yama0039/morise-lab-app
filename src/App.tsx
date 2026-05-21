@@ -87,7 +87,9 @@ function MainAppContent() {
 
       {/* メインコンテンツ */}
       <main className="main-content">
-        {renderContent()}
+        <div className="main-container">
+          {renderContent()}
+        </div>
       </main>
     </div>
   );

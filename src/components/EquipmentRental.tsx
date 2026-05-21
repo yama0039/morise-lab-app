@@ -106,7 +106,7 @@ export const EquipmentRental: React.FC = () => {
       </div>
 
       {/* 検索・フィルターバー */}
-      <div className="glass-card" style={{ marginBottom: '2rem', display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', padding: '1.25rem' }}>
+      <div className="glass-card" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', padding: '1rem' }}>
         <div style={{ flexGrow: 1, flexBasis: '200px', position: 'relative', display: 'flex', alignItems: 'center' }}>
           <Search size={18} style={{ position: 'absolute', left: '16px', color: 'var(--text-muted)' }} />
           <input
@@ -126,7 +126,7 @@ export const EquipmentRental: React.FC = () => {
               <button
                 key={cat}
                 className={`btn btn-sm ${selectedCategory === cat ? 'btn-primary' : 'btn-secondary'}`}
-                style={{ padding: '6px 14px', borderRadius: '20px' }}
+                style={{ borderRadius: '20px' }}
                 onClick={() => setSelectedCategory(cat)}
               >
                 {cat === 'All' ? 'すべて' : cat}
@@ -149,13 +149,13 @@ export const EquipmentRental: React.FC = () => {
                   </span>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-xs)', marginBottom: 'var(--space-xs)' }}>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     {item.category}
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: '1.05rem', fontWeight: '700', marginBottom: '12px', lineHeight: '1.4', color: 'var(--text-primary)' }}>
+                <h3 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: 'var(--space-sm)', lineHeight: '1.4', color: 'var(--text-primary)' }}>
                   {item.name}
                 </h3>
 
@@ -220,10 +220,10 @@ export const EquipmentRental: React.FC = () => {
       {rentingItem && (
         <div className="modal-overlay">
           <div className="glass-card modal-card">
-            <h2 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-primary)' }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: 'var(--space-xs)', color: 'var(--text-primary)' }}>
               物品の貸出申請
             </h2>
-            <p style={{ fontSize: '0.9rem', color: 'var(--accent-cyan)', fontWeight: '600', marginBottom: '1.5rem' }}>
+            <p style={{ fontSize: '0.875rem', color: 'var(--accent-cyan)', fontWeight: '600', marginBottom: 'var(--space-md)' }}>
               {rentingItem.name}
             </p>
 
